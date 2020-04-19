@@ -1,0 +1,21 @@
+int temp = 0;
+
+void setup()
+{
+  pinMode(A0, INPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+}
+
+void loop()
+{
+  temp = analogRead(A0);
+  if (temp > 166) {
+    tone(12, 523, 1000); // play tone 60 (C5 = 523 Hz)
+    digitalWrite(13, HIGH);
+  } else {
+    noTone(12);
+    digitalWrite(13, LOW);
+  }
+  delay(10); // Delay a little bit to improve simulation performance
+}
